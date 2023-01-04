@@ -32,11 +32,13 @@ setThemeFile theme =
     Onedark ->
       getConfig >>= \conf ->
         getAlacritty >>= \alacritty ->
-          copyFile (alacritty ++ "onedark.yml") conf
+          copyFile (alacritty ++ "onedark.yml") conf >>
+          constructApplfile
     Nord ->
       getConfig >>= \conf ->
         getAlacritty >>= \alacritty ->
-          copyFile (alacritty ++ "nord.yml") conf
+          copyFile (alacritty ++ "nord.yml") conf >>
+          constructApplfile
 
 xInfix :: IO Bool
 xInfix =
@@ -48,8 +50,8 @@ xInfix =
           return $ isInfixOf "berryfile" x
       False -> return False))
 
-text :: IO ()
-text =
+constructApplfile :: IO ()
+constructApplfile =
   xInfix >>= \case
     False ->
       getConfig >>= \x ->
