@@ -6,6 +6,7 @@ module Berry.Themes.Alacritty
   ) where
 
 import Berry.Database.Themes (getAlacritty)
+import Control.Monad ((>=>))
 import Data.List (isInfixOf)
 import System.Directory (copyFile, doesFileExist)
 import System.Environment (getEnv)
@@ -39,12 +40,13 @@ setThemeFile theme =
 
 xInfix :: IO Bool
 xInfix =
-  getConfig >>= \conf ->
-    doesFileExist conf >>= \case
+  getConfig >>=
+  (doesFileExist >=>
+   (\case
       True ->
         getConfig >>= readFile >>= \x ->
           return $ isInfixOf "berryfile" x
-      False -> return False
+      False -> return False))
 
 text :: IO ()
 text =
