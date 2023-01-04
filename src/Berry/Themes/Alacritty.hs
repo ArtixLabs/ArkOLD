@@ -46,8 +46,8 @@ xInfix =
   (doesFileExist >=>
    (\case
       True ->
-        getConfig >>= readFile >>= \x ->
-          return $ isInfixOf x "berryfile"
+        getConfig' >>= readFile >>= \x ->
+          return $ isInfixOf "berryfile" x
       False -> return False))
 
 constructApplfile :: IO ()
@@ -57,3 +57,4 @@ constructApplfile =
       getConfig >>= \x ->
         getConfig' >>= \v ->
           appendFile v $ "import: \n - " ++ x
+    True -> return ()
