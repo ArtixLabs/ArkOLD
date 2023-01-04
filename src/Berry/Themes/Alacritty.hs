@@ -2,7 +2,7 @@
 
 module Berry.Themes.Alacritty
   ( AlacrittyThemes(..)
-  , xInfix
+  , setThemeFile
   ) where
 
 import Berry.Database.Themes (getAlacritty)
@@ -47,7 +47,7 @@ xInfix =
    (\case
       True ->
         getConfig >>= readFile >>= \x ->
-          return $ isInfixOf "berryfile" x
+          return $ isInfixOf x "berryfile"
       False -> return False))
 
 constructApplfile :: IO ()
@@ -55,4 +55,5 @@ constructApplfile =
   xInfix >>= \case
     False ->
       getConfig >>= \x ->
-        getConfig' >>= \v -> appendFile v $ "import: " ++ x
+        getConfig' >>= \v ->
+          appendFile v $ "import: \n - " ++ x
