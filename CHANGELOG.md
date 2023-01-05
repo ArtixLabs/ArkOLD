@@ -15,3 +15,7 @@
 ## 0.2.0.3
 
 * Fix some minor errors
+
+## 0.2.0.4
+
+* Add newlines and fix network
