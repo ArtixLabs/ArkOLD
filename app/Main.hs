@@ -67,3 +67,7 @@ themeMGR (Args (Just False) Nothing (Just str) (Just False)) =
   putStrLn $ "You need to specify a program, or use system."
 themeMGR (Args (Just False) Nothing Nothing (Just True)) =
   downloadFiles
+themeMGR (Args Nothing Nothing Nothing Nothing) =
+  putStrLn $ "You need to specify some flags."
+themeMGR (Args _ _ _ _) =
+  putStrLn $ "You need to specify some flags."
