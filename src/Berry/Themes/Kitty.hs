@@ -2,15 +2,16 @@
 
 module Berry.Themes.Kitty
   ( KittyThemes(..)
+  , kittyThemeFile
   ) where
 
 import System.Directory (copyFile, doesFileExist)
 import System.Environment (getEnv)
 
 data KittyThemes
-  = Onedark
-  | Nord
-  | Undefined
+  = KittyOnedark
+  | KittyNord
+  | KittyUndefined
   deriving (Show, Eq)
 
 getConfig' :: IO String

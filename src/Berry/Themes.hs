@@ -9,7 +9,4 @@ import Berry.Themes.Alacritty
   ( AlacrittyThemes(..)
   , alacrittyThemeFile
   )
-import Berry.Themes.Alacritty
-( KittyThemes(..)
-, kittyThemeFile
-)
+import Berry.Themes.Kitty (KittyThemes(..), kittyThemeFile)
