@@ -16,13 +16,13 @@ import System.Environment (getEnv)
 
 files =
   [ ( "/.ark/alacritty/nord.yml"
-    , "https://raw.githubusercontent.com/Cobalt-Inferno/ark/master/SOURCE/alacritty/nord.yml")
+    , "https://raw.githubusercontent.com/artixlabs/ark/master/SOURCE/alacritty/nord.yml")
   , ( "/.ark/alacritty/onedark.yml"
-    , "https://raw.githubusercontent.com/Cobalt-Inferno/ark/master/SOURCE/alacritty/onedark.yml")
+    , "https://raw.githubusercontent.com/artixlabs/ark/master/SOURCE/alacritty/onedark.yml")
   , ( "/.ark/kitty/nord.conf"
-    , "https://raw.githubusercontent.com/Cobalt-Inferno/ark/master/SOURCE/kitty/nord.conf")
+    , "https://raw.githubusercontent.com/artixlabs/ark/master/SOURCE/kitty/nord.conf")
   , ( "/.ark/kitty/onedark.conf"
-    , "https://raw.githubusercontent.com/Cobalt-Inferno/ark/master/SOURCE/kitty/onedark.conf")
+    , "https://raw.githubusercontent.com/artixlabs/ark/master/SOURCE/kitty/onedark.conf")
   ]
 
 curl :: Request -> FilePath -> IO ()
