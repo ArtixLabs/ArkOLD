@@ -1,6 +1,6 @@
 cabal-version:      2.4
 name:               ark
-version:            0.2.0.1
+version:            0.2.0.2
 
 -- The license under which the package is released.
 license: AGPL-3.0-or-later
