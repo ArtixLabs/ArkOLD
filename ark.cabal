@@ -22,6 +22,9 @@ library
         Ark.Database
         Ark.Database.Themes
         Ark.Database.Network
+        Ark.Util
+        Ark.Util.Shell
+
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -33,6 +36,7 @@ library
       , directory
       , http-conduit
       , bytestring
+      , text
     hs-source-dirs:   src
     default-language: Haskell2010
 
