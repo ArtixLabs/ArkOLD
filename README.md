@@ -28,6 +28,11 @@ Ark is a program that aims to provide an easy way to manage system themes. Ark c
 $ ark --update # This fetches the updated themes.
 $ ark --program=<program> --theme=<theme> # Sets the theme
 ```
+As mentioned earlier, Ark can also be run with a system flag, which sets every available theme.
+```console
+$ ark -u # Same as --update
+$ ark --system --theme=<theme>
+```
 
 ## Contributing
 
