@@ -2,28 +2,16 @@ cabal-version:      2.4
 name:               berry
 version:            0.1.0.0
 
--- A short (one-line) description of the package.
--- synopsis:
-
--- A longer description of the package.
--- description:
-
--- A URL where users can report bugs.
--- bug-reports:
-
 -- The license under which the package is released.
--- license:
+license: AGPL-3.0-or-later
 
 -- The package author(s).
--- author:
+author: cobaltinferno
 
 -- An email address to which users can send suggestions, bug reports, and patches.
--- maintainer:
+maintainer: cobaltinferno
 
--- A copyright notice.
--- copyright:
--- category:
-extra-source-files: CHANGELOG.md
+extra-source-files: CHANGELOG.md, README.md, LICENSE
 
 library
     exposed-modules:
