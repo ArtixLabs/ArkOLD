@@ -3,4 +3,5 @@ module Ark.Util
   , detectShell
   ) where
 
+import Ark.Util.Archives
 import Ark.Util.Shell (appendToShellConfig, detectShell)

@@ -3,6 +3,8 @@
 
 module Ark.Database.Network
   ( downloadFiles
+  , curl
+  , mkdir
   ) where
 
 import Control.Monad (forM_)
