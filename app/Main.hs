@@ -10,7 +10,7 @@ data Args =
   Args
     { system :: Maybe Bool
     , program :: Maybe String
-    , theme :: String
+    , theme :: Maybe String
     , update :: Maybe Bool
     }
 
@@ -26,10 +26,11 @@ parseArgs =
      (long "program" <>
       short 'p' <>
       metavar "TARGET" <> help "Change the program's theme.")) <*>
-  strOption
-    (long "theme" <>
-     short 't' <>
-     metavar "TARGET" <> help "Select the theme.") <*>
+  (optional $
+   strOption
+     (long "theme" <>
+      short 't' <>
+      metavar "TARGET" <> help "Select the theme.")) <*>
   (optional $
    switch
      (long "update" <>
@@ -45,7 +46,7 @@ main = themeMGR =<< execParser opts
         (fullDesc <> progDesc "Make your system beautiful!")
 
 themeMGR :: Args -> IO ()
-themeMGR (Args (Just False) (Just x) str (Just False)) =
+themeMGR (Args (Just False) (Just x) (Just str) (Just False)) =
   case x of
     "alacritty" ->
       setThemeFile $
@@ -53,5 +54,5 @@ themeMGR (Args (Just False) (Just x) str (Just False)) =
         "nord" -> Nord
         "onedark" -> Onedark
         _ -> Undefined
-themeMGR (Args (Just False) Nothing str (Just False)) =
+themeMGR (Args (Just False) Nothing (Just str) (Just False)) =
   putStrLn $ "You need to specify a program, or use system."
