@@ -17,6 +17,7 @@ library
     exposed-modules:
         Berry.Themes
         Berry.Themes.Alacritty
+        Berry.Themes.Kitty
         Berry.Database
         Berry.Database.Themes
         Berry.Database.Network
