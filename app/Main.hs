@@ -1,5 +1,6 @@
 module Main where
 
+import Berry.Database.Network (downloadFiles)
 import Berry.Themes.Alacritty
   ( AlacrittyThemes(..)
   , setThemeFile
@@ -56,3 +57,5 @@ themeMGR (Args (Just False) (Just x) (Just str) (Just False)) =
         _ -> Undefined
 themeMGR (Args (Just False) Nothing (Just str) (Just False)) =
   putStrLn $ "You need to specify a program, or use system."
+themeMGR (Args (Just False) Nothing Nothing (Just True)) =
+  downloadFiles
