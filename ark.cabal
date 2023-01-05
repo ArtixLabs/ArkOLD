@@ -37,6 +37,7 @@ library
       , directory
       , http-conduit
       , bytestring
+      , filepath
       , text
       , process
     hs-source-dirs:   src
