@@ -5,6 +5,8 @@ import Berry.Themes.Alacritty
   ( AlacrittyThemes(..)
   , alacrittyThemeFile
   )
+import Berry.Themes.Kitty (KittyThemes(..), kittyThemeFile)
+
 import Options.Applicative
 
 data Args =
@@ -55,6 +57,12 @@ themeMGR (Args (Just False) (Just x) (Just str) (Just False)) =
         "nord" -> Nord
         "onedark" -> Onedark
         _ -> Undefined
+    "kitty" ->
+      kittyThemeFile $
+      case str of
+        "nord" -> KittyNord
+        "onedark" -> KittyOnedark
+        _ -> KittyUndefined
 themeMGR (Args (Just False) Nothing (Just str) (Just False)) =
   putStrLn $ "You need to specify a program, or use system."
 themeMGR (Args (Just False) Nothing Nothing (Just True)) =
