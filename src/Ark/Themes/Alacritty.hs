@@ -51,5 +51,5 @@ constructApplfile =
     False ->
       getConfig >>= \x ->
         getConfig' >>= \v ->
-          appendFile v $ "import: \n - " ++ x
+          appendFile v $ "import: \n - " ++ x ++ "\n"
     True -> return ()

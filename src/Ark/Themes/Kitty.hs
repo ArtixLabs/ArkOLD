@@ -36,7 +36,8 @@ constructApplfile =
   xInfix >>= \case
     False ->
       getConfig >>= \x ->
-        getConfig' >>= \v -> appendFile v $ "include " ++ x
+        getConfig' >>= \v ->
+          appendFile v $ "include " ++ x ++ "\n"
     True -> return ()
 
 kittyThemeFile :: Themes -> IO ()
