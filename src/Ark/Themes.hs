@@ -1,12 +1,9 @@
 module Ark.Themes
-  ( AlacrittyThemes(..)
-  , alacrittyThemeFile
-  , KittyThemes(..)
+  ( alacrittyThemeFile
   , kittyThemeFile
+  , Themes(..)
   ) where
 
-import Ark.Themes.Alacritty
-  ( AlacrittyThemes(..)
-  , alacrittyThemeFile
-  )
-import Ark.Themes.Kitty (KittyThemes(..), kittyThemeFile)
+import Ark.Themes.Alacritty (alacrittyThemeFile)
+import Ark.Themes.Kitty (kittyThemeFile)
+import Ark.Themes.Options (Themes(..))

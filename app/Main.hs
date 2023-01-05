@@ -1,11 +1,11 @@
 module Main where
 
 import Ark.Database.Network (downloadFiles)
-import Ark.Themes.Alacritty
-  ( AlacrittyThemes(..)
+import Ark.Themes
+  ( Themes(..)
   , alacrittyThemeFile
+  , kittyThemeFile
   )
-import Ark.Themes.Kitty (KittyThemes(..), kittyThemeFile)
 
 import Options.Applicative
 
@@ -60,9 +60,9 @@ themeMGR (Args (Just False) (Just x) (Just str) (Just False)) =
     "kitty" ->
       kittyThemeFile $
       case str of
-        "nord" -> KittyNord
-        "onedark" -> KittyOnedark
-        _ -> KittyUndefined
+        "nord" -> Nord
+        "onedark" -> Onedark
+        _ -> Undefined
 themeMGR (Args (Just False) Nothing (Just str) (Just False)) =
   putStrLn $ "You need to specify a program, or use system."
 themeMGR (Args (Just False) Nothing Nothing (Just True)) =

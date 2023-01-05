@@ -1,21 +1,15 @@
 {-# LANGUAGE LambdaCase #-}
 
 module Ark.Themes.Kitty
-  ( KittyThemes(..)
-  , kittyThemeFile
+  ( kittyThemeFile
   ) where
 
 import Ark.Database.Themes (getKitty)
+import Ark.Themes.Options (Themes(..))
 import Control.Monad ((>=>))
 import Data.List (isInfixOf)
 import System.Directory (copyFile, doesFileExist)
 import System.Environment (getEnv)
-
-data KittyThemes
-  = KittyOnedark
-  | KittyNord
-  | KittyUndefined
-  deriving (Show, Eq)
 
 getConfig' :: IO String
 getConfig' =
@@ -45,15 +39,15 @@ constructApplfile =
         getConfig' >>= \v -> appendFile v $ "include " ++ x
     True -> return ()
 
-kittyThemeFile :: KittyThemes -> IO ()
+kittyThemeFile :: Themes -> IO ()
 kittyThemeFile theme =
   case theme of
-    KittyOnedark ->
+    Onedark ->
       getConfig >>= \conf ->
         getKitty >>= \kitty ->
           copyFile (kitty ++ "onedark.conf") conf >>
           constructApplfile
-    KittyNord ->
+    Nord ->
       getConfig >>= \conf ->
         getKitty >>= \kitty ->
           copyFile (kitty ++ "nord.conf") conf >>

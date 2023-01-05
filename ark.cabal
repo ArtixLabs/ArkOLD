@@ -18,6 +18,7 @@ library
         Ark.Themes
         Ark.Themes.Alacritty
         Ark.Themes.Kitty
+        Ark.Themes.Options
         Ark.Database
         Ark.Database.Themes
         Ark.Database.Network

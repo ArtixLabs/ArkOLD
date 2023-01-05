@@ -1,21 +1,15 @@
 {-# LANGUAGE LambdaCase #-}
 
 module Ark.Themes.Alacritty
-  ( AlacrittyThemes(..)
-  , alacrittyThemeFile
+  ( alacrittyThemeFile
   ) where
 
 import Ark.Database.Themes (getAlacritty)
+import Ark.Themes.Options (Themes(..))
 import Control.Monad ((>=>))
 import Data.List (isInfixOf)
 import System.Directory (copyFile, doesFileExist)
 import System.Environment (getEnv)
-
-data AlacrittyThemes
-  = Onedark
-  | Nord
-  | Undefined
-  deriving (Show, Eq)
 
 getConfig' :: IO String
 getConfig' =
@@ -27,7 +21,7 @@ getConfig =
   getEnv "HOME" >>= \v ->
     return $ v <> "/.config/alacritty/arkfile.yml"
 
-alacrittyThemeFile :: AlacrittyThemes -> IO ()
+alacrittyThemeFile :: Themes -> IO ()
 alacrittyThemeFile theme =
   case theme of
     Onedark ->
