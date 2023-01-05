@@ -11,7 +11,7 @@ author: cobaltinferno
 -- An email address to which users can send suggestions, bug reports, and patches.
 maintainer: cobaltinferno
 
-extra-source-files: CHANGELOG.md, README.md, LICENSE
+extra-source-files: README.md, LICENSE
 
 library
     exposed-modules:
