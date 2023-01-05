@@ -17,6 +17,14 @@ data Args =
     , update :: Maybe Bool
     }
 
+setSystemTheme :: Themes -> IO ()
+setSystemTheme theme =
+  case theme of
+    Onedark ->
+      alacrittyThemeFile Onedark >> kittyThemeFile Onedark
+    Nord -> alacrittyThemeFile Nord >> kittyThemeFile Nord
+    Undefined -> return ()
+
 parseArgs :: Parser Args
 parseArgs =
   Args <$>
@@ -69,5 +77,10 @@ themeMGR (Args (Just False) Nothing Nothing (Just True)) =
   downloadFiles
 themeMGR (Args Nothing Nothing Nothing Nothing) =
   putStrLn $ "You need to specify some flags."
-themeMGR (Args _ _ _ _) =
+themeMGR (Args (Just True) Nothing (Just str) (Just False)) =
+  case str of
+    "nord" -> setSystemTheme Nord
+    "onedark" -> setSystemTheme Onedark
+    _ -> setSystemTheme Undefined
+themeMGR Args {} =
   putStrLn $ "You need to specify some flags."
