@@ -19,6 +19,10 @@ files =
     , "https://raw.githubusercontent.com/Cobalt-Inferno/berry/master/SOURCE/alacritty/nord.yml")
   , ( "/.berry/alacritty/onedark.yml"
     , "https://raw.githubusercontent.com/Cobalt-Inferno/berry/master/SOURCE/alacritty/onedark.yml")
+  , ( "/.berry/kitty/nord.conf"
+    , "https://raw.githubusercontent.com/Cobalt-Inferno/berry/master/SOURCE/kitty/nord.conf")
+  , ( "/.berry/kitty/onedark.conf"
+    , "https://raw.githubusercontent.com/Cobalt-Inferno/berry/master/SOURCE/kitty/onedark.conf")
   ]
 
 curl :: Request -> FilePath -> IO ()
@@ -27,7 +31,7 @@ curl link path =
     getEnv "HOME" >>= \home ->
       BL.writeFile (home ++ path) $ getResponseBody r
 
-neededDirs = ["/.berry/alacritty"]
+neededDirs = ["/.berry/alacritty", "/.berry/kitty"]
 
 mkdir :: FilePath -> IO ()
 mkdir path =
