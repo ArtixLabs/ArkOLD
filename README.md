@@ -22,6 +22,13 @@
 
 Berry is a program that aims to provide an easy way to manage system themes. Berry can set themes for specific programs, or the whole system with only one command!
 
+# Usage
+
+```console
+$ berry --update # This fetches the updated themes.
+$ berry --program=<program> --theme=<theme> # Sets the theme
+```
+
 ## Contributing
 
 New contributors should submit a PR with a short description of their changes.
