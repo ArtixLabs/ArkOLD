@@ -9,7 +9,3 @@ getAlacritty :: IO String
 getAlacritty =
   getEnv "HOME" >>= \home ->
     return $ home ++ "/.berry/alacritty/"
-
-downloadFiles :: IO ()
-downloadFiles = do
-
