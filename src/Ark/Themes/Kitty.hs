@@ -1,11 +1,11 @@
 {-# LANGUAGE LambdaCase #-}
 
-module Berry.Themes.Kitty
+module Ark.Themes.Kitty
   ( KittyThemes(..)
   , kittyThemeFile
   ) where
 
-import Berry.Database.Themes (getKitty)
+import Ark.Database.Themes (getKitty)
 import Control.Monad ((>=>))
 import Data.List (isInfixOf)
 import System.Directory (copyFile, doesFileExist)
@@ -25,7 +25,7 @@ getConfig' =
 getConfig :: IO String
 getConfig =
   getEnv "HOME" >>= \v ->
-    return $ v <> "/.config/kitty/berryfile.conf"
+    return $ v <> "/.config/kitty/arkfile.conf"
 
 xInfix :: IO Bool
 xInfix =
@@ -34,7 +34,7 @@ xInfix =
    (\case
       True ->
         getConfig' >>= readFile >>= \x ->
-          return $ isInfixOf "berryfile" x
+          return $ isInfixOf "arkfile" x
       False -> return False))
 
 constructApplfile :: IO ()

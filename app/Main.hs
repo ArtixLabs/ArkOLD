@@ -1,11 +1,11 @@
 module Main where
 
-import Berry.Database.Network (downloadFiles)
-import Berry.Themes.Alacritty
+import Ark.Database.Network (downloadFiles)
+import Ark.Themes.Alacritty
   ( AlacrittyThemes(..)
   , alacrittyThemeFile
   )
-import Berry.Themes.Kitty (KittyThemes(..), kittyThemeFile)
+import Ark.Themes.Kitty (KittyThemes(..), kittyThemeFile)
 
 import Options.Applicative
 

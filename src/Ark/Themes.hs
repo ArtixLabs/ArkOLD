@@ -1,12 +1,12 @@
-module Berry.Themes
+module Ark.Themes
   ( AlacrittyThemes(..)
   , alacrittyThemeFile
   , KittyThemes(..)
   , kittyThemeFile
   ) where
 
-import Berry.Themes.Alacritty
+import Ark.Themes.Alacritty
   ( AlacrittyThemes(..)
   , alacrittyThemeFile
   )
-import Berry.Themes.Kitty (KittyThemes(..), kittyThemeFile)
+import Ark.Themes.Kitty (KittyThemes(..), kittyThemeFile)

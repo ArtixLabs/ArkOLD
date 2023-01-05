@@ -1,4 +1,4 @@
-module Berry.Database.Themes
+module Ark.Database.Themes
   ( getAlacritty
   , getKitty
   ) where
@@ -9,9 +9,8 @@ import System.Environment (getEnv)
 getAlacritty :: IO String
 getAlacritty =
   getEnv "HOME" >>= \home ->
-    return $ home ++ "/.berry/alacritty/"
+    return $ home ++ "/.ark/alacritty/"
 
 getKitty :: IO String
 getKitty =
-  getEnv "HOME" >>= \home ->
-    return $ home ++ "/.berry/kitty/"
+  getEnv "HOME" >>= \home -> return $ home ++ "/.ark/kitty/"

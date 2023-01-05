@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE LambdaCase #-}
 
-module Berry.Database.Network
+module Ark.Database.Network
   ( downloadFiles
   ) where
 
@@ -15,14 +15,14 @@ import System.Directory
 import System.Environment (getEnv)
 
 files =
-  [ ( "/.berry/alacritty/nord.yml"
-    , "https://raw.githubusercontent.com/Cobalt-Inferno/berry/master/SOURCE/alacritty/nord.yml")
-  , ( "/.berry/alacritty/onedark.yml"
-    , "https://raw.githubusercontent.com/Cobalt-Inferno/berry/master/SOURCE/alacritty/onedark.yml")
-  , ( "/.berry/kitty/nord.conf"
-    , "https://raw.githubusercontent.com/Cobalt-Inferno/berry/master/SOURCE/kitty/nord.conf")
-  , ( "/.berry/kitty/onedark.conf"
-    , "https://raw.githubusercontent.com/Cobalt-Inferno/berry/master/SOURCE/kitty/onedark.conf")
+  [ ( "/.ark/alacritty/nord.yml"
+    , "https://raw.githubusercontent.com/Cobalt-Inferno/ark/master/SOURCE/alacritty/nord.yml")
+  , ( "/.ark/alacritty/onedark.yml"
+    , "https://raw.githubusercontent.com/Cobalt-Inferno/ark/master/SOURCE/alacritty/onedark.yml")
+  , ( "/.ark/kitty/nord.conf"
+    , "https://raw.githubusercontent.com/Cobalt-Inferno/ark/master/SOURCE/kitty/nord.conf")
+  , ( "/.ark/kitty/onedark.conf"
+    , "https://raw.githubusercontent.com/Cobalt-Inferno/ark/master/SOURCE/kitty/onedark.conf")
   ]
 
 curl :: Request -> FilePath -> IO ()
@@ -31,7 +31,7 @@ curl link path =
     getEnv "HOME" >>= \home ->
       BL.writeFile (home ++ path) $ getResponseBody r
 
-neededDirs = ["/.berry/alacritty", "/.berry/kitty"]
+neededDirs = ["/.ark/alacritty", "/.ark/kitty"]
 
 mkdir :: FilePath -> IO ()
 mkdir path =
@@ -43,10 +43,10 @@ mkdir path =
 verifyDirs :: IO ()
 verifyDirs =
   getEnv "HOME" >>= \home ->
-    doesDirectoryExist (home ++ "/.berry") >>= \case
+    doesDirectoryExist (home ++ "/.ark") >>= \case
       True -> mapM_ mkdir neededDirs
       False ->
-        createDirectory (home ++ "/.berry") >>
+        createDirectory (home ++ "/.ark") >>
         mapM_ mkdir neededDirs
 
 downloadFiles :: IO ()

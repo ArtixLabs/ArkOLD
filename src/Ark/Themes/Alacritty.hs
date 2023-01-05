@@ -1,11 +1,11 @@
 {-# LANGUAGE LambdaCase #-}
 
-module Berry.Themes.Alacritty
+module Ark.Themes.Alacritty
   ( AlacrittyThemes(..)
   , alacrittyThemeFile
   ) where
 
-import Berry.Database.Themes (getAlacritty)
+import Ark.Database.Themes (getAlacritty)
 import Control.Monad ((>=>))
 import Data.List (isInfixOf)
 import System.Directory (copyFile, doesFileExist)
@@ -25,7 +25,7 @@ getConfig' =
 getConfig :: IO String
 getConfig =
   getEnv "HOME" >>= \v ->
-    return $ v <> "/.config/alacritty/berryfile.yml"
+    return $ v <> "/.config/alacritty/arkfile.yml"
 
 alacrittyThemeFile :: AlacrittyThemes -> IO ()
 alacrittyThemeFile theme =
@@ -48,7 +48,7 @@ xInfix =
    (\case
       True ->
         getConfig' >>= readFile >>= \x ->
-          return $ isInfixOf "berryfile" x
+          return $ isInfixOf "arkfile" x
       False -> return False))
 
 constructApplfile :: IO ()
