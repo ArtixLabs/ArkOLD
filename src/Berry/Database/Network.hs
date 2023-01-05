@@ -27,7 +27,7 @@ curl link path =
     getEnv "HOME" >>= \home ->
       BL.writeFile (home ++ path) $ getResponseBody r
 
-needed_dirs = ["/.berry/alacritty"]
+neededDirs = ["/.berry/alacritty"]
 
 mkdir :: FilePath -> IO ()
 mkdir path =
@@ -39,8 +39,12 @@ mkdir path =
 verifyDirs :: IO ()
 verifyDirs =
   getEnv "HOME" >>= \home ->
-    (doesDirectoryExist $ home ++ "/.berry") >>= \case
-      True -> mapM_ mkdir needed_dirs
+    doesDirectoryExist (home ++ "/.berry") >>= \case
+      True -> mapM_ mkdir neededDirs
+      False ->
+        createDirectory (home ++ "/.berry") >>
+        mapM_ mkdir neededDirs
 
 downloadFiles :: IO ()
-downloadFiles = mapM_ (\(x, y) -> curl y x) files
+downloadFiles =
+  verifyDirs >> mapM_ (\(x, y) -> curl y x) files
