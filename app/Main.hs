@@ -4,6 +4,7 @@ import Ark.Database.Network (downloadFiles)
 import Ark.Themes
   ( Themes(..)
   , alacrittyThemeFile
+  , fzfSetTheme
   , kittyThemeFile
   )
 
@@ -21,8 +22,11 @@ setSystemTheme :: Themes -> IO ()
 setSystemTheme theme =
   case theme of
     Onedark ->
-      alacrittyThemeFile Onedark >> kittyThemeFile Onedark
-    Nord -> alacrittyThemeFile Nord >> kittyThemeFile Nord
+      alacrittyThemeFile Onedark >> kittyThemeFile Onedark >>
+      fzfSetTheme Onedark
+    Nord ->
+      alacrittyThemeFile Nord >> kittyThemeFile Nord >>
+      fzfSetTheme Nord
     Undefined -> return ()
 
 parseArgs :: Parser Args
@@ -67,6 +71,12 @@ themeMGR (Args (Just False) (Just x) (Just str) (Just False)) =
         _ -> Undefined
     "kitty" ->
       kittyThemeFile $
+      case str of
+        "nord" -> Nord
+        "onedark" -> Onedark
+        _ -> Undefined
+    "fzf" ->
+      fzfSetTheme $
       case str of
         "nord" -> Nord
         "onedark" -> Onedark
