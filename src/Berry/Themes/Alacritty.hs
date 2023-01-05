@@ -14,6 +14,7 @@ import System.Environment (getEnv)
 data AlacrittyThemes
   = Onedark
   | Nord
+  | Undefined
   deriving (Show, Eq)
 
 getConfig' :: IO String
