@@ -5,6 +5,9 @@ module Berry.Themes.Kitty
   , kittyThemeFile
   ) where
 
+import Berry.Database.Themes (getKitty)
+import Control.Monad ((>=>))
+import Data.List (isInfixOf)
 import System.Directory (copyFile, doesFileExist)
 import System.Environment (getEnv)
 
@@ -45,12 +48,12 @@ constructApplfile =
 kittyThemeFile :: KittyThemes -> IO ()
 kittyThemeFile theme =
   case theme of
-    Onedark ->
+    KittyOnedark ->
       getConfig >>= \conf ->
         getKitty >>= \kitty ->
           copyFile (kitty ++ "onedark.conf") conf >>
           constructApplfile
-    Nord ->
+    KittyNord ->
       getConfig >>= \conf ->
         getKitty >>= \kitty ->
           copyFile (kitty ++ "nord.conf") conf >>
