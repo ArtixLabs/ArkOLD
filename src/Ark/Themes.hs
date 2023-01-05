@@ -1,6 +1,7 @@
 module Ark.Themes
   ( alacrittyThemeFile
   , kittyThemeFile
+  , fzfSetTheme
   , Themes(..)
   ) where
 
