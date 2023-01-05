@@ -3,7 +3,7 @@ module Main where
 import Berry.Database.Network (downloadFiles)
 import Berry.Themes.Alacritty
   ( AlacrittyThemes(..)
-  , setThemeFile
+  , alacrittyThemeFile
   )
 import Options.Applicative
 
@@ -50,7 +50,7 @@ themeMGR :: Args -> IO ()
 themeMGR (Args (Just False) (Just x) (Just str) (Just False)) =
   case x of
     "alacritty" ->
-      setThemeFile $
+      alacrittyThemeFile $
       case str of
         "nord" -> Nord
         "onedark" -> Onedark

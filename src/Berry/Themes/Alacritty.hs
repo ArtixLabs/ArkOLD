@@ -2,7 +2,7 @@
 
 module Berry.Themes.Alacritty
   ( AlacrittyThemes(..)
-  , setThemeFile
+  , alacrittyThemeFile
   ) where
 
 import Berry.Database.Themes (getAlacritty)
@@ -27,8 +27,8 @@ getConfig =
   getEnv "HOME" >>= \v ->
     return $ v <> "/.config/alacritty/berryfile.yml"
 
-setThemeFile :: AlacrittyThemes -> IO ()
-setThemeFile theme =
+alacrittyThemeFile :: AlacrittyThemes -> IO ()
+alacrittyThemeFile theme =
   case theme of
     Onedark ->
       getConfig >>= \conf ->
