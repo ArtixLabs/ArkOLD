@@ -22,6 +22,8 @@
 
 Ark is a program that aims to provide an easy way to manage system themes. Ark can set themes for specific programs, or the whole system with only one command!
 
+Please note that Ark is currently in early development, and ***there will be bugs***
+
 # Usage
 
 ```console
