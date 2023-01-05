@@ -11,3 +11,7 @@
 ## 0.2.0.2
 
 * Update readme
+
+## 0.2.0.3
+
+* Fix some minor errors
