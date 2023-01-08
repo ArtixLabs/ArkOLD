@@ -32,13 +32,16 @@ tar' zipfile npath =
     if or x
       then doesFileExist zipfile >>= \case
              True ->
-               case (takeExtensions zipfile) of
+               case takeExtensions zipfile of
                  ".tar.gz" ->
                    callCommand $
                    "tar xvzf " ++ zipfile ++ " -C " ++ npath
                  ".tar" ->
                    callCommand $
                    "tar xvf " ++ zipfile ++ " -C " ++ npath
+                 ".tar.xz" ->
+                   callCommand $
+                   "tar xf " ++ zipfile ++ " -C " ++ npath
              False ->
                putStrLn $
                "File: '" ++ zipfile ++ "' does not exist."
